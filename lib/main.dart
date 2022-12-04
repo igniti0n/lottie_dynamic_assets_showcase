@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lottie_example/rewe_lottie/card_scan_lottie.dart';
 import 'package:lottie_example/rewe_lottie/lottie_info.dart';
+import 'package:lottie_example/rewe_lottie/numbers_lottie.dart';
 
 void main() {
   runApp(const MyApp());
@@ -46,11 +46,17 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: CardScanLottie(
-          lottiePlayerInfo: LottieInfo(
-            name: 'Name',
-            number: '10',
-            title: 'Player',
+        child: Container(
+          decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.black87,
+              ),
+              color: Colors.black),
+          child: NumbersLottie(
+            lottieInfo: LottieInfo(
+              firstNumber: '4',
+              secondNumber: '6',
+            ),
           ),
         ),
       ),

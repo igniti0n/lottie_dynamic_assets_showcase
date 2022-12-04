@@ -3,25 +3,22 @@ import 'package:lottie/lottie.dart';
 import 'package:lottie_example/rewe_lottie/lottie_info.dart';
 
 class LottieImageTransformer {
-  static const playerImageId = 'image_1.png';
-  static const playerSignatureImageId = 'image_0.png';
-  static const playerImageBasePath = 'assets/lotties/players/images/';
+  static const firstNumberId = 'image_1';
+  static const secondNumberId = 'image_0';
+  static const numbersImageBasePath = 'assets/lotties/images/';
   final LottieInfo lottieInfo;
 
   LottieImageTransformer({required this.lottieInfo});
 
   ImageProvider<Object>? lottieImageAssetToPlayerImage(LottieImageAsset asset) {
-    final playerNumber = lottieInfo.number;
-    if (asset.id == playerImageId) {
+    if (asset.id == firstNumberId) {
       return AssetImage(
-        '$playerImageBasePath$playerNumber.png',
+        '$numbersImageBasePath${lottieInfo.firstNumber}.png',
+      );
+    } else {
+      return AssetImage(
+        '$numbersImageBasePath${lottieInfo.secondNumber}.png',
       );
     }
-    if (asset.id == playerSignatureImageId) {
-      return AssetImage(
-        '$playerImageBasePath${playerNumber}_sign.png',
-      );
-    }
-    return null;
   }
 }
